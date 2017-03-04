@@ -100,7 +100,7 @@ StringBuffer和StringBuilder结构基本一样，不同之处在于，StingBuffe
 String类一旦创建就不能在改变了。
 StringBuffer和StringBuilder结构基本一样，不同之处在于，StingBuffer线程安">
 <meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/String.png">
-<meta property="og:updated_time" content="2017-03-04T06:27:37.806Z">
+<meta property="og:updated_time" content="2017-03-04T06:31:25.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sting、StringBuffer、StringBuilder的比较">
 <meta name="twitter:description" content="三者关系简介针对字符串的处理Java提供了三种类别，分别是String,StringBuffer和StringBuilder。三者有很多相似之处，当然也有也有一些区别，我们可以在不同的场合用不同的类来处理。这三类的大致结构如下：三类的主要不同点为：
@@ -358,7 +358,8 @@ StringBuffer和StringBuilder结构基本一样，不同之处在于，StingBuffe
 <ul>
 <li>String类一旦创建就不能在改变了。</li>
 <li>StringBuffer和StringBuilder结构基本一样，不同之处在于，StingBuffer线程<strong>安全</strong>的而StringBuilder线程<strong>不安全</strong>。</li>
-<li>三个类的处理速度：StringBuilder &gt; StingBuffer &gt; string。</li>
+<li>三个类的处理速度：StringBuilder &gt; StingBuffer &gt; string。<a id="more"></a>
+</li>
 </ul>
 <h2 id="String详解"><a href="#String详解" class="headerlink" title="String详解"></a>String详解</h2><p>String类是一个<strong>非常特殊</strong>的类，他可以像基本数据类型一样采用类似于String str=“123”这种方式来赋值，而且字符串存储在一个公共池中。这有利于对具有相同内容的字符串，以节省存储存储的共享。需要注意的是new操作符分配的String对象都存储在堆中，并没有对相同内容的共享存储</p>
 <h3 id="不可变定义"><a href="#不可变定义" class="headerlink" title="不可变定义"></a>不可变定义</h3><p>不可变对象是指对象的状态在被初始化以后，在整个对象的生命周期内，不可改变。</p>
