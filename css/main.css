@@ -1719,7 +1719,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fffcff;
+  background: #d78b7e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2566,7 +2566,7 @@ embed {
   display: inline-block;
 }
 .header {
-  background: url("../images/header_background.jpg");
+  background: url("http://om9vgntii.bkt.clouddn.com/header_background.jpg");
 }
 .site-subtitle {
   font-size: 15px;
