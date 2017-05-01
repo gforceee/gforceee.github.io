@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,nio," />
 
 
 
@@ -87,15 +87,34 @@
 
 
 
-<meta name="description" content="java菜鸟|废物宅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gforce">
-<meta property="og:url" content="http://www.tianyuanblog.com/index.html">
+<meta name="description" content="介绍一般来说TCP协议拥有以下特性：
+
+可靠性：确保数据确实到达目的地，如果未到达，能够发现并重传
+可控性：能够管路数据发送速度，使接受设备不过载
+
+一般会通过滑动窗口确认机制来确保TCP协议能够完成这2个任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滑动窗口详解">
+<meta property="og:url" content="http://www.tianyuanblog.com/2017/05/01/nio-2/index.html">
 <meta property="og:site_name" content="Gforce">
-<meta property="og:description" content="java菜鸟|废物宅">
+<meta property="og:description" content="介绍一般来说TCP协议拥有以下特性：
+
+可靠性：确保数据确实到达目的地，如果未到达，能够发现并重传
+可控性：能够管路数据发送速度，使接受设备不过载
+
+一般会通过滑动窗口确认机制来确保TCP协议能够完成这2个任务">
+<meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.png">
+<meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%BB%91%E5%8A%A8.png">
+<meta property="og:updated_time" content="2017-05-01T11:32:30.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gforce">
-<meta name="twitter:description" content="java菜鸟|废物宅">
+<meta name="twitter:title" content="滑动窗口详解">
+<meta name="twitter:description" content="介绍一般来说TCP协议拥有以下特性：
+
+可靠性：确保数据确实到达目的地，如果未到达，能够发现并重传
+可控性：能够管路数据发送速度，使接受设备不过载
+
+一般会通过滑动窗口确认机制来确保TCP协议能够完成这2个任务">
+<meta name="twitter:image" content="http://om9vgntii.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.png">
 
 
 
@@ -123,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://www.tianyuanblog.com/"/>
+  <link rel="canonical" href="http://www.tianyuanblog.com/2017/05/01/nio-2/"/>
 
 
 
 
 
-  <title> Gforce </title>
+  <title> 滑动窗口详解 | Gforce </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +173,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,9 +266,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -281,10 +298,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/05/01/nio-2/" itemprop="url">
-                  滑动窗口详解
-                </a>
+                滑动窗口详解
               
             
           </h1>
@@ -351,6 +365,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -367,370 +386,90 @@
       
 
       
-        
-          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一般来说TCP协议拥有以下特性：</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>一般来说TCP协议拥有以下特性：</p>
 <ul>
 <li>可靠性：确保数据确实到达目的地，如果未到达，能够发现并重传</li>
 <li>可控性：能够管路数据发送速度，使接受设备不过载</li>
 </ul>
-<p>一般会通过滑动窗口确认机制来确保TCP协议能够完成这2个任务<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/01/nio-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.tianyuanblog.com/2017/04/23/nio-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gforce">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/luffy.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gforce">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/23/nio-1/" itemprop="url">
-                  一口一口吃掉NIO：了解相关概念
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-23T17:01:49+08:00">
-                2017-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nio/" itemprop="url" rel="index">
-                    <span itemprop="name">nio</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/23/nio-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/nio-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="阻塞非阻塞、同步与异步的理解"><a href="#阻塞非阻塞、同步与异步的理解" class="headerlink" title="阻塞非阻塞、同步与异步的理解"></a>阻塞非阻塞、同步与异步的理解</h2><ol>
-<li>同步与异步</li>
+<p>一般会通过滑动窗口确认机制来确保TCP协议能够完成这2个任务<br> <a id="more"></a></p>
+<h2 id="TCP需要了解的一些小细节"><a href="#TCP需要了解的一些小细节" class="headerlink" title="TCP需要了解的一些小细节"></a>TCP需要了解的一些小细节</h2><p>我们都知道TCO连接的建立是需要<strong>三次握手</strong>的，建立连接后就可以传输数据了，发送方发送自己的数据，接受方收到数据之后给出一个确认的<strong>ACK</strong>包,这个包就是我们需要重点关注的地方，因为这个ACK包不单单只是回复而已，里面还包含了重要的信息。</p>
+<ol>
+<li>期望接受到<strong>下一位字节序号</strong>，如果发送过来的字节序列不是期望的，便不会确认。比如说发送端发来1-20这组端数据，那么接收端在ACK包中就会返回21来确认1-20的数据都准确接收到了，下一次发可以从21开始发了，如果发送端发送32-42序号数据，那么接受端不会发送43的ACK，还是会发21的ACK</li>
+<li>当前窗口的<strong>大小</strong>，这个主要是为了控制流量，比如说大小为S，已发送但字节为X，已确认的字节为Ａ，那么可以发送的大小Y=S-X+Ａ。</li>
 </ol>
-<p>这个是一组概念，主要关注的点是<strong>信息通信机制</strong>；</p>
-<ul>
-<li>同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；</li>
-<li>异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/23/nio-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<h2 id="滑动窗口的具体例子"><a href="#滑动窗口的具体例子" class="headerlink" title="滑动窗口的具体例子"></a>滑动窗口的具体例子</h2><p>按照上面所说，我们可以将TCP会话任何时候的数据按下图分为<strong>四</strong>类：</p>
+<ol>
+<li>已经发送并且得到了确认</li>
+<li>已经发送但没有得到确认</li>
+<li>未发送但是可以发送的数据</li>
+<li>未发送也不允许发送的数据</li>
+</ol>
+<p><img src="http://om9vgntii.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.png" alt="滑动窗口的数据分类"><br>TCP在数据传输过程是一个动态的过程，上述的这些数据也会实时的变换，来看一个具体例子吧<br><img src="http://om9vgntii.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%BB%91%E5%8A%A8.png" alt="滑动窗口滑动"><br>如图所示，当发送端接送到接收端发挥的ACK包里面接受的字节为36并且窗口大小不变时，滑动窗口便整个向后挪了5位，滑动窗口中的数据都是可以发送给接收端的。<br>这是正常情况下的数据传输，如果发送端中间发送了与预期不符合的数据，那么接受端便不会确认，TCP之中有一个重传的记时机制，如果长时间不确认，那么就会重新传输一遍数据。</p>
+<p><a href="https://wizardforcel.gitbooks.io/network-basic/content/7.html" target="_blank" rel="external">网络基本功（八）：细说TCP滑动窗口</a></p>
+<p><a href="https://www.zhihu.com/question/32255109" target="_blank" rel="external">TCP协议的滑动窗口具体是怎样控制流量的？</a></p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.tianyuanblog.com/2017/03/04/String_StringBuilder_StringBuffer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gforce">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/luffy.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gforce">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/04/String_StringBuilder_StringBuffer/" itemprop="url">
-                  Sting、StringBuffer、StringBuilder的比较
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T13:24:55+08:00">
-                2017-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/java/" rel="tag"># java</a>
           
-
+            <a href="/tags/nio/" rel="tag"># nio</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/04/String_StringBuilder_StringBuffer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/04/String_StringBuilder_StringBuffer/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <h2 id="三者关系简介"><a href="#三者关系简介" class="headerlink" title="三者关系简介"></a>三者关系简介</h2><p>针对字符串的处理Java提供了三种类别，分别是String,StringBuffer和StringBuilder。三者有很多相似之处，当然也有也有一些区别，我们可以在不同的场合用不同的类来处理。这三类的大致结构如下：<br><img src="http://om9vgntii.bkt.clouddn.com/String.png" alt="Sting、Stringbuffer、Stringbuilder继承实习关系"><br>三类的主要不同点为：</p>
-<ul>
-<li>String类一旦创建就不能在改变了。</li>
-<li>StringBuffer和StringBuilder结构基本一样，不同之处在于，StingBuffer线程<strong>安全</strong>的而StringBuilder线程<strong>不安全</strong>。</li>
-<li>三个类的处理速度：StringBuilder &gt; StingBuffer &gt; string。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/String_StringBuilder_StringBuffer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/23/nio-1/" rel="next" title="一口一口吃掉NIO：了解相关概念">
+                <i class="fa fa-chevron-left"></i> 一口一口吃掉NIO：了解相关概念
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -738,6 +477,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/01/nio-2/"
+           data-title="滑动窗口详解" data-url="http://www.tianyuanblog.com/2017/05/01/nio-2/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -757,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/luffy.jpg"
@@ -836,6 +592,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP需要了解的一些小细节"><span class="nav-number">2.</span> <span class="nav-text">TCP需要了解的一些小细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口的具体例子"><span class="nav-number">3.</span> <span class="nav-text">滑动窗口的具体例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -957,6 +729,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

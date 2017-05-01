@@ -88,28 +88,31 @@
 
 
 <meta name="description" content="阻塞非阻塞、同步与异步的理解
-同步与异步这个是一组概念，主要关注的点是信息通信机制；
+同步与异步
 
+这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
 异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一口一口吃掉NIO：了解相关概念">
-<meta property="og:url" content="http://www.tianyuanblog.com/2017/04/23/NIO-1/index.html">
+<meta property="og:url" content="http://www.tianyuanblog.com/2017/04/23/nio-1/index.html">
 <meta property="og:site_name" content="Gforce">
 <meta property="og:description" content="阻塞非阻塞、同步与异步的理解
-同步与异步这个是一组概念，主要关注的点是信息通信机制；
+同步与异步
 
+这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
 异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/NIO%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:updated_time" content="2017-04-23T09:12:01.757Z">
+<meta property="og:updated_time" content="2017-05-01T11:29:24.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一口一口吃掉NIO：了解相关概念">
 <meta name="twitter:description" content="阻塞非阻塞、同步与异步的理解
-同步与异步这个是一组概念，主要关注的点是信息通信机制；
+同步与异步
 
+这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
 异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
@@ -141,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://www.tianyuanblog.com/2017/04/23/NIO-1/"/>
+  <link rel="canonical" href="http://www.tianyuanblog.com/2017/04/23/nio-1/"/>
 
 
 
@@ -276,7 +279,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.tianyuanblog.com/2017/04/23/NIO-1/">
+    <link itemprop="mainEntityOfPage" href="http://www.tianyuanblog.com/2017/04/23/nio-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gforce">
@@ -353,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/23/NIO-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/NIO-1/" itemprop="commentCount"></span>
+                <a href="/2017/04/23/nio-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/23/nio-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,16 +389,18 @@
 
       
         <h2 id="阻塞非阻塞、同步与异步的理解"><a href="#阻塞非阻塞、同步与异步的理解" class="headerlink" title="阻塞非阻塞、同步与异步的理解"></a>阻塞非阻塞、同步与异步的理解</h2><ol>
-<li>同步与异步<br>这个是一组概念，主要关注的点是<strong>信息通信机制</strong>；</li>
+<li>同步与异步</li>
 </ol>
+<p>这个是一组概念，主要关注的点是<strong>信息通信机制</strong>；</p>
 <ul>
 <li>同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；</li>
 <li>异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。<a id="more"></a>
 </li>
 </ul>
 <ol>
-<li>阻塞与非阻塞<br>这一组概念，主要是<strong>描述调用者在等待结果时的状态</strong>；</li>
+<li>阻塞与非阻塞</li>
 </ol>
+<p>这一组概念，主要是<strong>描述调用者在等待结果时的状态</strong>；</p>
 <ul>
 <li>阻塞指的是当调用者没有拿到结果时就不干别的事，一直等这个结果；</li>
 <li>非阻塞恰恰相反，调用者没有拿到结果就去干别的事了，并不会干等这个结果。<h2 id="两组概念的组合"><a href="#两组概念的组合" class="headerlink" title="两组概念的组合"></a>两组概念的组合</h2></li>
@@ -457,6 +462,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/01/nio-2/" rel="prev" title="滑动窗口详解">
+                滑动窗口详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -481,8 +490,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/23/NIO-1/"
-           data-title="一口一口吃掉NIO：了解相关概念" data-url="http://www.tianyuanblog.com/2017/04/23/NIO-1/">
+      <div class="ds-thread" data-thread-key="2017/04/23/nio-1/"
+           data-title="一口一口吃掉NIO：了解相关概念" data-url="http://www.tianyuanblog.com/2017/04/23/nio-1/">
       </div>
     
   </div>
@@ -531,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
