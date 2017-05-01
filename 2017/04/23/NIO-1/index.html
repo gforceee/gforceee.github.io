@@ -87,44 +87,26 @@
 
 
 
-<meta name="description" content="阻塞非阻塞、同步与异步的理解
-同步与异步
-
-这个是一组概念，主要关注的点是信息通信机制；
+<meta name="description" content="阻塞非阻塞、同步与异步的理解同步与异步这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
-异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。
-
-
-阻塞与非阻塞">
+异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一口一口吃掉NIO：了解相关概念">
 <meta property="og:url" content="http://www.tianyuanblog.com/2017/04/23/NIO-1/index.html">
 <meta property="og:site_name" content="Gforce">
-<meta property="og:description" content="阻塞非阻塞、同步与异步的理解
-同步与异步
-
-这个是一组概念，主要关注的点是信息通信机制；
+<meta property="og:description" content="阻塞非阻塞、同步与异步的理解同步与异步这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
-异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。
-
-
-阻塞与非阻塞">
+异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/NIO%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:updated_time" content="2017-05-01T13:31:18.047Z">
+<meta property="og:updated_time" content="2017-05-01T13:33:58.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一口一口吃掉NIO：了解相关概念">
-<meta name="twitter:description" content="阻塞非阻塞、同步与异步的理解
-同步与异步
-
-这个是一组概念，主要关注的点是信息通信机制；
+<meta name="twitter:description" content="阻塞非阻塞、同步与异步的理解同步与异步这个是一组概念，主要关注的点是信息通信机制；
 
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
-异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。
-
-
-阻塞与非阻塞">
+异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta name="twitter:image" content="http://om9vgntii.bkt.clouddn.com/NIO%E6%A8%A1%E5%9E%8B.png">
 
 
@@ -397,19 +379,13 @@
       
 
       
-        <h2 id="阻塞非阻塞、同步与异步的理解"><a href="#阻塞非阻塞、同步与异步的理解" class="headerlink" title="阻塞非阻塞、同步与异步的理解"></a>阻塞非阻塞、同步与异步的理解</h2><ol>
-<li>同步与异步</li>
-</ol>
-<p>这个是一组概念，主要关注的点是<strong>信息通信机制</strong>；</p>
+        <h2 id="阻塞非阻塞、同步与异步的理解"><a href="#阻塞非阻塞、同步与异步的理解" class="headerlink" title="阻塞非阻塞、同步与异步的理解"></a>阻塞非阻塞、同步与异步的理解</h2><h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>这个是一组概念，主要关注的点是<strong>信息通信机制</strong>；</p>
 <ul>
 <li>同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；</li>
-<li>异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。</li>
+<li>异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。<a id="more"></a>
+</li>
 </ul>
-<ol>
-<li>阻塞与非阻塞</li>
-</ol>
-<a id="more"></a>
-<p>这一组概念，主要是<strong>描述调用者在等待结果时的状态</strong>；</p>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><p>这一组概念，主要是<strong>描述调用者在等待结果时的状态</strong>；</p>
 <ul>
 <li>阻塞指的是当调用者没有拿到结果时就不干别的事，一直等这个结果；</li>
 <li>非阻塞恰恰相反，调用者没有拿到结果就去干别的事了，并不会干等这个结果。<h2 id="两组概念的组合"><a href="#两组概念的组合" class="headerlink" title="两组概念的组合"></a>两组概念的组合</h2></li>
@@ -622,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞非阻塞、同步与异步的理解"><span class="nav-number">1.</span> <span class="nav-text">阻塞非阻塞、同步与异步的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两组概念的组合"><span class="nav-number">2.</span> <span class="nav-text">两组概念的组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK-NIO通信模型"><span class="nav-number">3.</span> <span class="nav-text">JDK NIO通信模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞非阻塞、同步与异步的理解"><span class="nav-number">1.</span> <span class="nav-text">阻塞非阻塞、同步与异步的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步与异步"><span class="nav-number">1.1.</span> <span class="nav-text">同步与异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞与非阻塞"><span class="nav-number">1.2.</span> <span class="nav-text">阻塞与非阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两组概念的组合"><span class="nav-number">2.</span> <span class="nav-text">两组概念的组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK-NIO通信模型"><span class="nav-number">3.</span> <span class="nav-text">JDK NIO通信模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
