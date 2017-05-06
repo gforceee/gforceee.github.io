@@ -100,7 +100,7 @@
 同步指的是当调用者发出命令调用相应的程序时，程序会一直执行到有结果再将该结果返回给调用者；
 异步指的是当调用者发出命令调用相应的程序时，程序会先将调用返回，等有了结果被调用者再通过状态、通知来通知调用者。">
 <meta property="og:image" content="http://om9vgntii.bkt.clouddn.com/NIO%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:updated_time" content="2017-05-01T13:33:58.368Z">
+<meta property="og:updated_time" content="2017-05-06T06:57:39.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一口一口吃掉NIO：了解相关概念">
 <meta name="twitter:description" content="阻塞非阻塞、同步与异步的理解同步与异步这个是一组概念，主要关注的点是信息通信机制；
@@ -391,7 +391,7 @@
 <li>非阻塞恰恰相反，调用者没有拿到结果就去干别的事了，并不会干等这个结果。<h2 id="两组概念的组合"><a href="#两组概念的组合" class="headerlink" title="两组概念的组合"></a>两组概念的组合</h2></li>
 <li>同步阻塞：当调用者发出请求后就一直干等，等到有结果返回；</li>
 <li>同步非阻塞：当调用者发出请求后一遍干别的事一边等，中间还会时不时去问程序是否完成了（PS:比如说我们排队买东西，排队的时候可以玩手机）；</li>
-<li>异步阻塞：当调用者发出请求后，调用会返回，但是请求者却不干其他的事，知道程序通知调用者执行完毕（PS：我觉得这个模式是最蠢的）；</li>
+<li>异步阻塞：当调用者发出请求后，调用会返回，但是请求者却不干其他的事，直到程序通知调用者执行完毕（PS：一般我们说异步都默认为异步非阻塞）；</li>
 <li>异步非阻塞：当调用者者发出请求后就去干别的事去了，程序跑出结果告诉调用者（这就厉害了）。<h2 id="JDK-NIO通信模型"><a href="#JDK-NIO通信模型" class="headerlink" title="JDK NIO通信模型"></a>JDK NIO通信模型</h2>java中的NIO属于上述的同步非阻塞这一模型，具体流程可以参见下图：<br><img src="http://om9vgntii.bkt.clouddn.com/NIO%E6%A8%A1%E5%9E%8B.png" alt="NIO模型"><br>我对这个图的理解大致为，select会一直阻塞来检测io是否就绪，一旦就绪好select就会去通知相应的线程将数据拷贝至相应的位置。其中拷贝过程需要线程自己完成，所以被称为<strong>同步</strong>；但是select没有通知线程时，线程可以去干别的事情，所以被称为<strong>非阻塞</strong>。<br>这里引申出<strong>Reactor模式</strong>，该模式大体为：由一个不断等待和循环的单独进程（线程）来做这件事，它接受所有handler的注册，并负责先操作系统查询IO是否就绪，在就绪后就调用指定handler进行处理，这个角色的名字就叫做Reactor。<strong>NIO中Reactor的核心是Selector</strong>。</li>
 </ul>
 <hr>
